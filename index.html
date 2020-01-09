@@ -37,10 +37,10 @@
 </head>
 <body>
 <div id="app">
-  <v-button>
+  <v-button v-bind:loading="loading1" v-on:click="loading1 = !loading1">
     按钮
   </v-button>
-  <v-button icon="left-arrow">
+  <v-button icon="left-arrow" v-bind:loading="loading2" v-on:click="loading2 = !loading2">
     按钮
   </v-button>
   <v-button icon="right-arrow">
@@ -52,12 +52,15 @@
   <v-button icon="drop-down">
     按钮
   </v-button>
-  <v-button icon="thumbs-up" icon-position="right">
+  <v-button icon="thumbs-up" icon-position="right" v-bind:loading=true>
+    按钮
+  </v-button>
+  <v-button icon="loading">
     按钮
   </v-button>
 </div>
 
 <script src="./src/app.js"></script>
-<script src="//at.alicdn.com/t/font_1606350_wfrooyvufdg.js"></script>
+<script src="//at.alicdn.com/t/font_1606350_xn28khtzyv.js"></script>
 </body>
 </html>

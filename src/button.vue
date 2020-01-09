@@ -1,6 +1,7 @@
 <template>
-  <button class="v-button" v-bind:class="{[`icon-${iconPosition}`]: true}">
-    <v-icon v-bind:icon-name="icon"  v-if="icon" class="icon"></v-icon>
+  <button class="v-button" v-bind:class="{[`icon-${iconPosition}`]: true}" v-on:click="$emit('click')">
+    <v-icon v-bind:icon-name="icon" v-if="icon && !loading" class="icon"/>
+    <v-icon class="loading icon" v-if="loading" icon-name="loading"/>
     <div class="content">
       <slot></slot>
     </div>
@@ -13,11 +14,15 @@
       icon: {
         type: String
       },
+      loading: {
+        type: Boolean,
+        default: false
+      },
       iconPosition: {
         type: String,
         default: 'left',
-        validator (value) {
-          return value !== 'left' && value !== 'right' ? false : true;
+        validator(value) {
+          return !(value !== 'left' && value !== 'right');
         }
       }
     }
@@ -26,6 +31,10 @@
 
 <style scoped lang="scss">
   .v-button {
+    @keyframes loading {
+      0% {transform: rotate(0deg);}
+      100% {transform: rotate(360deg);}
+    }
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -69,6 +78,9 @@
       > .content {
         order: 1;
       }
+    }
+    .loading {
+      animation: loading 1s infinite linear;
     }
   }
 </style>
