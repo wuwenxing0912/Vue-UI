@@ -1,8 +1,6 @@
 <template>
-  <button class="g-button" v-bind:class="{[`icon-${iconPosition}`]: true}">
-    <svg v-if="icon" class="icon">
-      <use v-bind:xlink:href="`#icon-${icon}`"></use>
-    </svg>
+  <button class="v-button" v-bind:class="{[`icon-${iconPosition}`]: true}">
+    <v-icon v-bind:icon-name="icon"  v-if="icon" class="icon"></v-icon>
     <div class="content">
       <slot></slot>
     </div>
@@ -27,7 +25,7 @@
 </script>
 
 <style scoped lang="scss">
-  .g-button {
+  .v-button {
     display: inline-flex;
     justify-content: center;
     align-items: center;
