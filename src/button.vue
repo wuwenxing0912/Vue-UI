@@ -9,7 +9,11 @@
 </template>
 
 <script>
+  import Icon from './icon'
   export default {
+    components: {
+      'v-icon': Icon
+    },
     props: {
       icon: {
         type: String
