@@ -6,7 +6,13 @@
 
 <script>
   export default {
-  
+    mounted() {
+      for (let node of this.$el.children) {
+        if (node.nodeName.toLowerCase() !== 'button') {
+          console.warn('v-button-group的子元素应都是v-button')
+        }
+      }
+    }
   }
 </script>
 
@@ -16,7 +22,9 @@
     vertical-align: middle;
     > .v-button {
       border-radius: 0;
-      margin-left: -1px;
+      &:not(:first-child) {
+        margin-left: -1px;
+      }
       &:first-child {
         border-top-left-radius: var(--border-radius);
         border-bottom-left-radius: var(--border-radius)
