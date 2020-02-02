@@ -29,6 +29,10 @@
       margin: 20px;
     }
 
+    .box {
+      margin-bottom: 10px;
+    }
+
     body {
       font-size: var(--font-size);
     }
@@ -37,36 +41,46 @@
 </head>
 <body>
 <div id="app">
-  <v-button v-bind:loading="loading1" v-on:click="loading1 = !loading1">
-    按钮
-  </v-button>
-  <v-button icon="left-arrow" v-bind:loading="loading2" v-on:click="loading2 = !loading2">
-    按钮
-  </v-button>
-  <v-button icon="right-arrow">
-    按钮
-  </v-button>
-  <v-button icon="download">
-    按钮
-  </v-button>
-  <v-button icon="drop-down">
-    按钮
-  </v-button>
-  <v-button icon="thumbs-up" icon-position="right" v-bind:loading=true>
-    按钮
-  </v-button>
-  <v-button icon="loading">
-    按钮
-  </v-button>
-  <v-button-group>
-    <v-button icon="left-arrow">
+  <div class="box">
+    <v-input value="AA"disabled></v-input>
+    <v-input value="BB" readonly></v-input>
+    <v-input value="CC"></v-input>
+  </div>
+  <div class="box">
+    <v-input value="DD" error="姓名不能少于两个字"></v-input>
+  </div>
+  <div class="box">
+    <v-button v-bind:loading="loading1" v-on:click="loading1 = !loading1">
+      按钮
+    </v-button>
+    <v-button icon="left-arrow" v-bind:loading="loading2" v-on:click="loading2 = !loading2">
+      按钮
+    </v-button>
+    <v-button icon="right-arrow">
+      按钮
+    </v-button>
+    <v-button icon="download">
+      按钮
+    </v-button>
+    <v-button icon="drop-down">
+      按钮
+    </v-button>
+    <v-button icon="thumbs-up" icon-position="right" v-bind:loading=true>
+      按钮
+    </v-button>
+    <v-button icon="loading">
+      按钮
+    </v-button>
+    <v-button-group>
+      <v-button icon="left-arrow">
         上一页
-    </v-button>
-    <v-button>更多</v-button>
-    <v-button icon="right-arrow" icon-position="right">
-      下一页
-    </v-button>
-  </v-button-group>
+      </v-button>
+      <v-button>更多</v-button>
+      <v-button icon="right-arrow" icon-position="right">
+        下一页
+      </v-button>
+    </v-button-group>
+  </div>
 </div>
 
 <script src="./src/app.js"></script>
