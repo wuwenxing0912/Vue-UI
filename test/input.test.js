@@ -76,9 +76,14 @@ describe('事件', () => {
     const callback = sinon.fake();
     vm.$on('change', callback);
     const changeEvent = new Event('change');
+    Object.defineProperty(
+      changeEvent, 'target', {
+        value: {value: 'hi'}, enumerable: true
+      }
+    );
     const inputElement = vm.$el.querySelector('input');
     inputElement.dispatchEvent(changeEvent);
-    expect(callback).to.have.been.calledWith(changeEvent);
+    expect(callback).to.have.been.calledWith('hi');
   });
 
   it('支持 input 事件', () => {
@@ -91,9 +96,14 @@ describe('事件', () => {
     const callback = sinon.fake();
     vm.$on('input', callback);
     const inputEvent = new Event('input');
+    Object.defineProperty(
+      inputEvent, 'target', {
+        value: {value: 'hi'}, enumerable: true
+      }
+    );
     const inputElement = vm.$el.querySelector('input');
     inputElement.dispatchEvent(inputEvent);
-    expect(callback).to.have.been.calledWith(inputEvent);
+    expect(callback).to.have.been.calledWith('hi');
   });
 
   it('支持 focus 事件', () => {
@@ -106,9 +116,14 @@ describe('事件', () => {
     const callback = sinon.fake();
     vm.$on('focus', callback);
     const focusEvent = new Event('focus');
+    Object.defineProperty(
+      focusEvent, 'target', {
+        value: {value: 'hi'}, enumerable: true
+      }
+    );
     const inputElement = vm.$el.querySelector('input');
     inputElement.dispatchEvent(focusEvent);
-    expect(callback).to.have.been.calledWith(focusEvent);
+    expect(callback).to.have.been.calledWith('hi');
   });
 
   it('支持 blur 事件', () => {
@@ -121,8 +136,14 @@ describe('事件', () => {
     const callback = sinon.fake();
     vm.$on('blur', callback);
     const blurEvent = new Event('blur');
+    Object.defineProperty(
+      blurEvent, 'target', {
+        value: {value: 'hi'}, enumerable: true
+      }
+    );
     const inputElement = vm.$el.querySelector('input');
     inputElement.dispatchEvent(blurEvent);
-    expect(callback).to.have.been.calledWith(blurEvent);
+    expect(callback).to.have.been.calledWith('hi');
   });
+
 });
