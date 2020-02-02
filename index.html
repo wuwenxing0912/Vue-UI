@@ -50,6 +50,9 @@
     <v-input value="DD" error="姓名不能少于两个字"></v-input>
   </div>
   <div class="box">
+    <v-input value="EE" @change="inputChange"></v-input>
+  </div>
+  <div class="box">
     <v-button v-bind:loading="loading1" v-on:click="loading1 = !loading1">
       按钮
     </v-button>
