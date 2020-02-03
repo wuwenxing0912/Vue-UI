@@ -61,7 +61,7 @@
       colClasses() {
         let createClasses = this.createClasses;
         return [
-          ...createClasses({span: this.span, off: this.offset}),
+          ...createClasses({span: this.span, offset: this.offset}),
           ...createClasses(this.ipad, 'ipad-'),
           ...createClasses(this.narrowPc, 'narrow-pc-'),
           ...createClasses(this.pc, 'pc-'),
