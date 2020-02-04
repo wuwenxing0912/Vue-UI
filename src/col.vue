@@ -1,8 +1,9 @@
 <template>
   <div class="col" :class="colClasses" :style="colStyle">
-    <div style="border: 1px solid green; height: 100%">
-      <slot></slot>
-    </div>
+<!--    <div style="border: 1px solid green; height: 100%">-->
+<!--      <slot></slot>-->
+<!--    </div>-->
+    <slot></slot>
   </div>
 </template>
 
