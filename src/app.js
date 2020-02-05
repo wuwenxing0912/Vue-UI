@@ -45,7 +45,8 @@ new Vue({
           callback: function(toast) {
             toast.log();
           }
-        }
+        },
+        position: 'bottom'
       });
     }
   }
