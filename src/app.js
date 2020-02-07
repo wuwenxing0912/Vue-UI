@@ -43,7 +43,7 @@ new Vue({
     loading1: false,
     loading2: true,
     message: '测试',
-    selectedTab: 'tab1'
+    selectedTab: 'tab3'
   },
   methods: {
     inputChange(e) {

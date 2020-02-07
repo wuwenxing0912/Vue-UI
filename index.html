@@ -80,11 +80,14 @@
         </v-tabs-item>
         <v-tabs-item name="tab2" disabled>Tab 2</v-tabs-item>
         <v-tabs-item name="tab3">Tab 3</v-tabs-item>
+        <template slot="actions">
+          <button>设置</button>
+        </template>
       </v-tabs-head>
       <v-tabs-body>
         <v-tabs-pane name="tab1">Tab 1 content</v-tabs-pane>
         <v-tabs-pane name="tab2">Tab 2 content</v-tabs-pane>
-        <v-tabs-pane name="ta3">Tab 3 content</v-tabs-pane>
+        <v-tabs-pane name="tab3">Tab 3 content</v-tabs-pane>
       </v-tabs-body>
     </v-tabs>
   </div>
