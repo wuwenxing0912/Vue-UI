@@ -36,27 +36,34 @@
     .demo {
       height: 50px;
     }
+
     .light {
       background-color: #aaaaaa;
     }
+
     .heavy {
       background-color: #eeeeee;
     }
+
     .sider {
       width: 200px;
       background-color: #aaaaaa;
     }
+
     .header {
       background-color: #cccccc;
       min-height: 100px;
     }
+
     .footer {
       background-color: #cccccc;
       min-height: 100px;
     }
+
     .content-demo {
       background-color: #eeeeee;
     }
+
     body {
       font-size: var(--font-size);
     }
@@ -65,6 +72,24 @@
 </head>
 <body>
 <div id="app">
+  <div class="box">
+    <v-tabs :selected.sync='selectedTab'>
+      <v-tabs-head>
+        <v-tabs-item name="tab1">
+          <v-icon icon-name="settings"></v-icon>Tab 1
+        </v-tabs-item>
+        <v-tabs-item name="tab2" disabled>Tab 2</v-tabs-item>
+        <v-tabs-item name="tab3">Tab 3</v-tabs-item>
+      </v-tabs-head>
+      <v-tabs-body>
+        <v-tabs-pane name="tab1">Tab 1 content</v-tabs-pane>
+        <v-tabs-pane name="tab2">Tab 2 content</v-tabs-pane>
+        <v-tabs-pane name="ta3">Tab 3 content</v-tabs-pane>
+      </v-tabs-body>
+    </v-tabs>
+  </div>
+
+
   <div class="box">
     <button @click="showMessage()">Click</button>
   </div>
@@ -79,15 +104,15 @@
     </v-layout>
   </div>
   <div class="box">
-<!--    <v-row class="demo">-->
-<!--      <v-col :pc="{span: 20}" :narrow-pc="{span: 12}" :ipad="{span: 10}" :wide-pc="{span: 24}"></v-col>-->
-<!--    </v-row>-->
-<!--    <v-row gutter="10" class="demo">-->
-<!--      <v-col span="6">1</v-col>-->
-<!--      <v-col span="6">1</v-col>-->
-<!--      <v-col span="6">1</v-col>-->
-<!--      <v-col span="6">1</v-col>-->
-<!--    </v-row>-->
+    <!--    <v-row class="demo">-->
+    <!--      <v-col :pc="{span: 20}" :narrow-pc="{span: 12}" :ipad="{span: 10}" :wide-pc="{span: 24}"></v-col>-->
+    <!--    </v-row>-->
+    <!--    <v-row gutter="10" class="demo">-->
+    <!--      <v-col span="6">1</v-col>-->
+    <!--      <v-col span="6">1</v-col>-->
+    <!--      <v-col span="6">1</v-col>-->
+    <!--      <v-col span="6">1</v-col>-->
+    <!--    </v-row>-->
     <v-row class="demo">
       <v-col span="4" class="light"></v-col>
       <v-col span="20" class="heavy"></v-col>
@@ -106,7 +131,7 @@
     </v-row>
   </div>
   <div class="box">
-    <v-input value="AA"disabled></v-input>
+    <v-input value="AA" disabled></v-input>
     <v-input value="BB" readonly></v-input>
     <v-input value="CC"></v-input>
   </div>
