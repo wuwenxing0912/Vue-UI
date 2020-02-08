@@ -4,6 +4,7 @@
     <div class="actions-wrapper">
       <slot name="actions"></slot>
     </div>
+    <div class="line" ref="line"></div>
   </div>
 </template>
 
@@ -11,11 +12,13 @@
   export default {
     name: "VTabsHead",
     inject: ['eventBus'],
-    props: {
-
-    },
-    created() {
-
+    props: {},
+    mounted() {
+      this.eventBus.$on('update:selected', (name, vm) => {
+        let {width, height, top, left} = vm.$el.getBoundingClientRect();
+        this.$refs.line.style.width = `${width}px`;
+        this.$refs.line.style.left = (left + 0) - 20 + 'px';
+      });
     }
   }
 </script>
@@ -24,11 +27,23 @@
   .tabs-head {
     display: flex;
     height: 40px;
-    border: 1px solid red;
     justify-content: flex-start;
     align-items: center;
+    position: relative;
+    border-bottom: 1px solid #ddd;
     > .actions-wrapper {
       margin-left: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 1em;
+    }
+
+    .line {
+      position: absolute;
+      border-bottom: 1px solid blue;
+      bottom: 0;
+      transition: all 300ms;
     }
   }
 </style>

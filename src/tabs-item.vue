@@ -37,7 +37,7 @@
     },
     methods: {
       activeTabItem() {
-        this.eventBus.$emit('update:selected', this.name);
+        this.eventBus.$emit('update:selected', this.name, this);
       }
     }
   }
@@ -50,8 +50,10 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    height: 100%;
+    cursor: pointer;
     &.active {
-      background: red;
+
     }
   }
 </style>
