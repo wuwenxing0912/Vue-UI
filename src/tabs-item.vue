@@ -26,7 +26,8 @@
     computed: {
       itemClasses() {
         return {
-          active: this.active
+          active: this.active,
+          disabled: this.disabled
         };
       }
     },
@@ -37,6 +38,9 @@
     },
     methods: {
       activeTabItem() {
+        if (this.disabled) {
+          return
+        }
         this.eventBus.$emit('update:selected', this.name, this);
       }
     }
@@ -52,8 +56,15 @@
     justify-content: center;
     height: 100%;
     cursor: pointer;
-    &.active {
 
+    &.active {
+      color: blue;
+      font-weight: bold;
+    }
+
+    &.disabled {
+      color: grey;
+      cursor: not-allowed;
     }
   }
 </style>
